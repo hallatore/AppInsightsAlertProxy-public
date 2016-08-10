@@ -1,0 +1,43 @@
+﻿@model AppInsightsAlertProxy.Web.ViewModels.Alert.IndexViewModel
+
+@using (Html.BeginForm())
+{
+    <h2>Generering av webhook mellom Azure og Slack</h2>
+    @Html.LabelFor(m => m.Name, "Navn")
+    @Html.TextBoxFor(m => m.Name, new { placeholder = "nettside.url.no"})
+    @Html.LabelFor(m => m.Channel, "Kanal")
+    @Html.TextBoxFor(m => m.Channel, new { placeholder = "#nettside-kanal" })
+    <button>Generer URL</button>
+    @Html.ValidationSummary()
+    <input type="url" readonly="readonly" value="@Model.Url" style="padding: 5px; width: 100%; border: 0;"/>
+}
+
+<style>
+    body {
+        margin: 20px;    
+    }
+
+     label, input, button {
+         margin-right: 10px;
+         margin-bottom: 10px;
+         padding: 5px;
+         float: left;
+     }
+
+    label, button {
+        clear: left;
+        width: 100px;
+    }
+
+    button {
+        display: block;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .validation-summary-errors {
+        clear: both;
+        color: red;
+        font-weight: bold;
+    }
+</style>
